@@ -1,0 +1,44 @@
+[DEBUG] request /utf8
+I, [2021-12-06T08:18:50.297905 #49199]  INFO -- request: GET http://localhost:4567/utf8
+I, [2021-12-06T08:18:50.297960 #49199]  INFO -- request: User-Agent: "Faraday v2.0.0.alpha-3"
+I, [2021-12-06T08:18:50.313075 #49199]  INFO -- response: Status 200
+I, [2021-12-06T08:18:50.313111 #49199]  INFO -- response: content-type: "text/html;charset=utf-8"
+content-length: "158"
+x-xss-protection: "1; mode=block"
+x-content-type-options: "nosniff"
+x-frame-options: "SAMEORIGIN"
+connection: "keep-alive"
+server: "thin"
+[DEBUG] response.body.encoding, UTF-8
+[DEBUG] response.body
+<!DOCTYPE html><html lang="ja"><head><title>charset utf-8</title><meta charset="utf-8" /></head><body><p>文字コードは UTF-8 です ☺</p></body></html>
+
+[DEBUG] request /shift-jis
+I, [2021-12-06T08:18:50.313272 #49199]  INFO -- request: GET http://localhost:4567/shift-jis
+I, [2021-12-06T08:18:50.313302 #49199]  INFO -- request: User-Agent: "Faraday v2.0.0.alpha-3"
+I, [2021-12-06T08:18:50.317688 #49199]  INFO -- response: Status 200
+I, [2021-12-06T08:18:50.317720 #49199]  INFO -- response: content-type: "text/html;charset=shift_jis"
+content-length: "159"
+x-xss-protection: "1; mode=block"
+x-content-type-options: "nosniff"
+x-frame-options: "SAMEORIGIN"
+connection: "keep-alive"
+server: "thin"
+[DEBUG] response.body.encoding, Shift_JIS
+[DEBUG] response.body
+<!DOCTYPE html><html lang="ja"><head><title>charset Shift_JIS</title><meta charset="shift-jis" /></head><body><p>文字コードは Shift_JIS です </p></body></html>
+
+[DEBUG] request /shift-jis-no-charset
+I, [2021-12-06T08:18:50.318240 #49199]  INFO -- request: GET http://localhost:4567/shift-jis-no-charset
+I, [2021-12-06T08:18:50.318260 #49199]  INFO -- request: User-Agent: "Faraday v2.0.0.alpha-3"
+I, [2021-12-06T08:18:50.322151 #49199]  INFO -- response: Status 200
+I, [2021-12-06T08:18:50.322186 #49199]  INFO -- response: content-type: "text/html"
+content-length: "159"
+x-xss-protection: "1; mode=block"
+x-content-type-options: "nosniff"
+x-frame-options: "SAMEORIGIN"
+connection: "keep-alive"
+server: "thin"
+[DEBUG] response.body.encoding, ASCII-8BIT
+faraday_test.rb:22:in `encode': "\\x95" from ASCII-8BIT to UTF-8 (Encoding::UndefinedConversionError)
+        from faraday_test.rb:22:in `<main>'
