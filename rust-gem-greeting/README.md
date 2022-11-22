@@ -1,32 +1,31 @@
-# Greeting
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/greeting`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+# Sample gem written in Rust
 
 ## Installation
 
-Install the gem and add to the application's Gemfile by executing:
-
-    $ bundle add greeting
-
-If bundler is not being used to manage dependencies, install the gem by executing:
-
-    $ gem install greeting
+```bash
+$ gem install greeting
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```rb
+require 'greeting'
+
+Greeting.say
+# => 'Hello, World!'
+```
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+```bash
+$ docker compose build
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+## Build
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/greeting.
+```bash
+$ docker compose run app gem build greeting.gemspec
+```
 
 ## License
 
